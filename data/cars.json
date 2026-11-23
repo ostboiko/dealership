@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "brand": "Toyota",
+    "model": "Camry",
+    "year": 2019,
+    "price": 21500,
+    "mileage": 78,
+    "fuel": "Бензин",
+    "gearbox": "Автомат",
+    "image": "",
+    "desc": "Один власник, сервісна книжка, без ДТП."
+  },
+  {
+    "id": 2,
+    "brand": "BMW",
+    "model": "520d",
+    "year": 2017,
+    "price": 24900,
+    "mileage": 134,
+    "fuel": "Дизель",
+    "gearbox": "Автомат",
+    "image": "",
+    "desc": "Пакет M-sport, шкіряний салон, камера."
+  },
+  {
+    "id": 3,
+    "brand": "Tesla",
+    "model": "Model 3",
+    "year": 2021,
+    "price": 28700,
+    "mileage": 45,
+    "fuel": "Електро",
+    "gearbox": "Автомат",
+    "image": "",
+    "desc": "Long Range, автопілот, гарантія на батарею."
+  },
+  {
+    "id": 4,
+    "brand": "Volkswagen",
+    "model": "Golf 7",
+    "year": 2016,
+    "price": 12300,
+    "mileage": 140,
+    "fuel": "Бензин",
+    "gearbox": "Механіка",
+    "image": "",
+    "desc": "Економічний, свіже ТО, нові шини."
+  }
+]
