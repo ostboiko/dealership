@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>АвтоСалон — каталог автомобілів</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#">🚗 Авто<span>Салон</span></a>
+      <nav class="nav">
+        <a href="#catalog">Каталог</a>
+        <a href="#add">Додати авто</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Знайдіть свій ідеальний автомобіль</h1>
+      <p>Каталог працює через REST API: додавайте нові авто та видаляйте продані.</p>
+      <div class="stats" id="stats"></div>
+    </div>
+  </section>
+
+  <main class="container layout">
+
+    <!-- ФОРМА ДОДАВАННЯ -->
+    <aside class="panel" id="add">
+      <h2>Додати автомобіль</h2>
+      <form id="carForm" novalidate>
+        <div class="field">
+          <label for="brand">Марка *</label>
+          <input id="brand" name="brand" type="text" placeholder="Toyota" maxlength="30" required>
+        </div>
+        <div class="field">
+          <label for="model">Модель *</label>
+          <input id="model" name="model" type="text" placeholder="Camry" maxlength="30" required>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="year">Рік *</label>
+            <input id="year" name="year" type="number" placeholder="2020" min="1950" max="2100" required>
+          </div>
+          <div class="field">
+            <label for="price">Ціна, $ *</label>
+            <input id="price" name="price" type="number" placeholder="15000" min="1" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="mileage">Пробіг, тис. км</label>
+            <input id="mileage" name="mileage" type="number" placeholder="85" min="0">
+          </div>
+          <div class="field">
+            <label for="fuel">Паливо</label>
+            <select id="fuel" name="fuel">
+              <option>Бензин</option>
+              <option>Дизель</option>
+              <option>Гібрид</option>
+              <option>Електро</option>
+              <option>Газ/бензин</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="gearbox">Коробка передач</label>
+          <select id="gearbox" name="gearbox">
+            <option>Автомат</option>
+            <option>Механіка</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="imageUrl">Фото (посилання)</label>
+          <input id="imageUrl" name="imageUrl" type="url" placeholder="https://...">
+        </div>
+        <div class="field">
+          <label for="imageFile">або завантажте файл</label>
+          <input id="imageFile" type="file" accept="image/*">
+        </div>
+        <div class="field">
+          <label for="desc">Опис</label>
+          <textarea id="desc" name="desc" rows="3" maxlength="200" placeholder="Один власник, сервісна книжка..."></textarea>
+        </div>
+
+        <p class="error" id="formError" role="alert"></p>
+
+        <button class="btn btn--primary" type="submit">➕ Додати авто</button>
+      </form>
+    </aside>
+
+    <!-- КАТАЛОГ -->
+    <section id="catalog">
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="🔍 Пошук за маркою або моделлю...">
+        <select id="sort" aria-label="Сортування">
+          <option value="new">Спочатку нові</option>
+          <option value="priceAsc">Ціна ↑</option>
+          <option value="priceDesc">Ціна ↓</option>
+          <option value="yearDesc">Рік ↓</option>
+          <option value="mileageAsc">Пробіг ↑</option>
+        </select>
+        <button class="btn btn--ghost" id="resetBtn" type="button" title="Повернути початковий список">↺ Скинути</button>
+      </div>
+
+      <div class="status hidden" id="status" role="status"></div>
+      <div class="grid" id="grid"></div>
+      <p class="empty hidden" id="empty">Нічого не знайдено. Додайте автомобіль у формі зліва.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="yr"></span> АвтоСалон · проєкт на HTML, CSS, JavaScript + REST API (Node.js)</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
